@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+        
+
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    {% if error %}
+        <div class = "alerts">
+          Invalid Email address or Password
+        </div> 
+        {% endif %}
+    <form style="max-width: 350px; padding: 20px; border: 1px solid #ccc; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <h2 style="text-align: center;">Login</h2>
+        <div style="margin-bottom: 15px;">
+            <label for="username" style="display: block; margin-bottom: 5px;">Email:</label>
+            <input type="text" id="username" name="username" style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;" required>
+        </div>
+        <div style="margin-bottom: 15px;">
+            <label for="password" style="display: block; margin-bottom: 5px;">Password:</label>
+            <input type="password" id="password" name="password" style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;" required>
+        </div>
+        <button type="submit" style="width: 100%; padding: 10px; background-color: #333; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Login</button>
+        <p style="text-align: center;">Don't have an account? <a href="{% url 'signup' %}" style="color: #333;">Sign up here</a></p>
+    </form>
+</div>
+
+{% endblock %}

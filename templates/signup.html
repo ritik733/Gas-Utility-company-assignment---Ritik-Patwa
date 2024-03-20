@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div style="display: flex; justify-content: center; align-items: center; height: 150vh;">
+    <form style="max-width: 400px; padding: 20px; border: 1px solid #ccc; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" action="{% url 'newuser' %}" method="POST">
+        {% csrf_token %}
+        <h2 style="text-align: center;">Sign Up</h2>
+        <div style="margin-bottom: 15px;">
+            <label for="name" style="display: block; margin-bottom: 5px;">Name:</label>
+            <input type="text" id="name" name="name" style="width: 80%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;" required>
+        </div>
+        <div style="margin-bottom: 15px;">
+            <label for="email" style="display: block; margin-bottom: 5px;">Email:</label>
+            <input type="email" id="email" name="email" style="width: 80%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;" required>
+        </div>
+        <div style="margin-bottom: 15px;">
+            <label for="k_number" style="display: block; margin-bottom: 5px;">Bill Number:</label>
+            <input type="text" id="k_number" name="k_number" style="width: 80%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;" required>
+        </div>
+        <div style="margin-bottom: 15px;">
+            <label for="name" style="display: block; margin-bottom: 5px;">Address:</label>
+            <input type="textarea" id="address" name="address" style="width: 80%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;" required>
+        </div>
+        <div style="margin-bottom: 15px;">
+            <label for="mobile_number" style="display: block; margin-bottom: 5px;">Mobile Number:</label>
+            <input type="tel" id="mobile_number" name="mobile_number" style="width: 80%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;" required>
+        </div>
+        <div style="margin-bottom: 15px;">
+            <label for="password" style="display: block; margin-bottom: 5px;">Password:</label>
+            <input type="password" id="password" name="password" style="width: 80%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;" required>
+        </div>
+        <button type="submit" style="width: 100%; padding: 10px; background-color: #333; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Sign Up</button>
+        <p style="text-align: center;">Already have an account? <a href="{% url 'login' %}" style="color: #333;">Login here</a></p>
+    </form>
+</div>
+
+{% endblock %}
